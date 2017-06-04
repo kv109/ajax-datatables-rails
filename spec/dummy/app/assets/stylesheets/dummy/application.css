@@ -12,5 +12,9 @@
  *
  *= require ./bootstrap_custom
  *= require ./font_awesome
+ *= require datatables/datatables.min
+ *= require datatables/datatables.font-awesome
+ *= require datatables/jquery.dataTables.yadcf
+ *= require datatables/context_menu
  *= require_self
  */
