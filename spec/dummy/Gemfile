@@ -13,3 +13,5 @@ gem 'font-awesome-sass'
 # Add factory_girl to generate sample data
 gem 'factory_girl'
 gem 'faker'
+
+gem 'ajax-datatables-rails', path: '../..'

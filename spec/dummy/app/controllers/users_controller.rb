@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def datatable
+    render json: UserDatatable.new(view_context)
+  end
+
   def index
-    @users = User.all
   end
 
   def show
