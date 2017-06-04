@@ -7,6 +7,7 @@
   - t.head_for 'title',      label: 'Title'
   - t.head_for 'content',    label: 'Content'
   - t.head_for 'user_id',    label: 'Author'
+  - t.head_for 'actions',    label: 'Actions', sortable: false, searchable: false
   - t.body     class: 'context-menu'
 
   = t.render_datatable

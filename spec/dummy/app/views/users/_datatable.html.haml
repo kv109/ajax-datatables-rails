@@ -8,6 +8,7 @@
   - t.head_for 'email',      label: 'Email'
   - t.head_for 'first_name', label: 'First name'
   - t.head_for 'last_name',  label: 'Last name'
+  - t.head_for 'actions',    label: 'Actions', sortable: false, searchable: false
   - t.body     class: 'context-menu'
 
   = t.render_datatable
