@@ -14,4 +14,7 @@ gem 'font-awesome-sass'
 gem 'factory_girl'
 gem 'faker'
 
+# Add bullet to detect N+1 queries
+gem 'bullet'
+
 gem 'ajax-datatables-rails', path: '../..'

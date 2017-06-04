@@ -30,7 +30,7 @@ class PostDatatable < AjaxDatatablesRails::Base
 
 
   def get_raw_records
-    Post.all
+    Post.includes(:user).all
   end
 
 
