@@ -75,22 +75,3 @@ end
 # Specs flagged with `js: true` will use Capybara's JS driver. Set
 # that JS driver to :poltergeist
 Capybara.javascript_driver = :poltergeist
-
-# adapter = ENV.fetch('DB_ADAPTER', 'postgresql')
-
-# options = {
-#   adapter:  adapter,
-#   database: 'ajax_datatables_rails',
-#   encoding: 'utf8'
-# }
-
-# options = options.merge(username: 'root') if adapter == 'mysql2'
-# options = options.merge(username: ENV['USER'], password: ENV['USER'], database: 'xe', host: '127.0.0.1/xe') if adapter == 'oracle_enhanced'
-# options = options.merge(database: ':memory:') if adapter == 'sqlite3'
-
-# ActiveRecord::Base.establish_connection(options)
-
-AjaxDatatablesRails.configure do |c|
-  c.db_adapter = ActiveRecord::Base.connection.adapter_name.downcase.to_sym
-  c.orm = :active_record
-end
