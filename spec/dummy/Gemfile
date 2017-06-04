@@ -9,3 +9,7 @@ gem 'bootstrap-sass'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'font-awesome-sass'
+
+# Add factory_girl to generate sample data
+gem 'factory_girl'
+gem 'faker'
