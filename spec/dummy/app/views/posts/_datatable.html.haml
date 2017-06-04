@@ -1,0 +1,14 @@
+- bootstrap_datatables_for :posts,
+    ajax:  { url: datatable_posts_path(format: :json), type: 'POST' },
+    dom:   datatable_dom_with_selected_and_buttons,
+    order: [[ 1, 'asc' ]] do |t|
+
+  - t.head_for 'check_box',  label: link_to_select_all('#posts-table .posts-checkbox'), sortable: false, searchable: false
+  - t.head_for 'title',      label: 'Title'
+  - t.head_for 'content',    label: 'Content'
+  - t.head_for 'user_id',    label: 'Author'
+  - t.body     class: 'context-menu'
+
+  = t.render_datatable
+  :javascript
+    #{t.render_js_datatable}
