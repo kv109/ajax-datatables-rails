@@ -12,6 +12,7 @@
 /spec/dummy/tmp
 /spec/dummy/db/*.sqlite3
 /spec/dummy/log/*.log
+/spec/dummy/*.lock
 
 # Ignore sqlite db file
 /ajax_datatables_rails
