@@ -23,7 +23,7 @@
 
   <div class="field form-group">
     <%= form.label :user_id, class: 'control-label' %>
-    <%= form.collection_select :user_id, User.all, :id, :to_s, id: :post_user_id, class: 'form-control' %>
+    <%= form.collection_select :user_id, User.all, :id, :to_s, {}, id: :post_user_id, class: 'form-control' %>
   </div>
 
   <div class="actions form-group">
