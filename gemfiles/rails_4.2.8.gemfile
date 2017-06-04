@@ -3,8 +3,11 @@
 source "https://rubygems.org"
 
 gem "rails", "4.2.8"
+
+if ENV["DB_ADAPTER"] == "oracle_enhanced"
 gem "activerecord-oracle_enhanced-adapter", "~> 1.6.0"
-gem "ruby-oci8" if ENV["DB_ADAPTER"] == "oracle_enhanced"
+gem "ruby-oci8"
+end
 
 group :test do
   gem "codeclimate-test-reporter", "~> 1.0.0"
