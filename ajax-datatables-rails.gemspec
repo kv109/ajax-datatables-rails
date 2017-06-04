@@ -17,11 +17,23 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'rails', '>= 4.0'
   s.add_development_dependency 'rake'
+  s.add_development_dependency 'puma'
+  s.add_development_dependency 'haml'
+  s.add_development_dependency 'jquery-rails'
+  s.add_development_dependency 'coffee-rails'
+  s.add_development_dependency 'sass-rails'
+  s.add_development_dependency 'bootstrap-sass'
+  s.add_development_dependency 'font-awesome-sass'
+
   s.add_development_dependency 'pg'
   s.add_development_dependency 'mysql2'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'activerecord-oracle_enhanced-adapter'
+
   s.add_development_dependency 'rspec'
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'rspec-html-matchers'
+
   s.add_development_dependency 'generator_spec'
   s.add_development_dependency 'pry'
   s.add_development_dependency 'simplecov'
@@ -29,6 +41,11 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'factory_girl'
   s.add_development_dependency 'faker'
   s.add_development_dependency 'appraisal'
+
+  s.add_development_dependency 'poltergeist'
+  s.add_development_dependency 'capybara'
+  s.add_development_dependency 'capybara-screenshot'
+
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

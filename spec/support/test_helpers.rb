@@ -1,3 +1,5 @@
+require 'action_controller'
+
 # rubocop:disable Metrics/MethodLength
 def sample_params
   ActionController::Parameters.new(

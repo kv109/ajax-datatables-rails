@@ -1,21 +1,36 @@
 require 'simplecov'
-require 'rspec'
-require 'database_cleaner'
-require 'factory_girl'
-require 'faker'
-require 'pry'
-require 'rails'
-require 'active_record'
-require 'action_controller'
 
 # Start Simplecov
 SimpleCov.start do
   add_filter 'spec/'
 end
 
+# Load dummy app
+ENV['RAILS_ENV'] ||= 'test'
+require File.expand_path('../dummy/config/environment.rb', __FILE__)
+require 'rspec/rails'
+require 'rspec-html-matchers'
+require 'capybara/rails'
+require 'capybara/rspec'
+require 'capybara-screenshot/rspec'
+require 'capybara/poltergeist'
+require 'database_cleaner'
+require 'factory_girl'
+require 'faker'
+require 'pry'
+
+# Load support files
+Dir[File.expand_path('../support/**/*.rb', __FILE__)].each { |f| require f }
+
+# Make ActiveRecord create the database for us
+ActiveRecord::Migration.maintain_test_schema!
+
 # Configure RSpec
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include Capybara::DSL
+  config.include Rails.application.routes.url_helpers
+  config.include RSpecHtmlMatchers
 
   config.before(:suite) do
     FactoryGirl.find_definitions
@@ -30,6 +45,8 @@ RSpec.configure do |config|
 
   config.color = true
   config.fail_fast = false
+
+  config.use_transactional_fixtures = true
 
   config.order = :random
   Kernel.srand config.seed
@@ -55,27 +72,25 @@ RSpec.configure do |config|
   end
 end
 
-require 'ajax-datatables-rails'
+# Specs flagged with `js: true` will use Capybara's JS driver. Set
+# that JS driver to :poltergeist
+Capybara.javascript_driver = :poltergeist
 
-adapter = ENV.fetch('DB_ADAPTER', 'postgresql')
+# adapter = ENV.fetch('DB_ADAPTER', 'postgresql')
 
-options = {
-  adapter:  adapter,
-  database: 'ajax_datatables_rails',
-  encoding: 'utf8'
-}
+# options = {
+#   adapter:  adapter,
+#   database: 'ajax_datatables_rails',
+#   encoding: 'utf8'
+# }
 
-options = options.merge(username: 'root') if adapter == 'mysql2'
-options = options.merge(username: ENV['USER'], password: ENV['USER'], database: 'xe', host: '127.0.0.1/xe') if adapter == 'oracle_enhanced'
-options = options.merge(database: ':memory:') if adapter == 'sqlite3'
+# options = options.merge(username: 'root') if adapter == 'mysql2'
+# options = options.merge(username: ENV['USER'], password: ENV['USER'], database: 'xe', host: '127.0.0.1/xe') if adapter == 'oracle_enhanced'
+# options = options.merge(database: ':memory:') if adapter == 'sqlite3'
 
-ActiveRecord::Base.establish_connection(options)
+# ActiveRecord::Base.establish_connection(options)
 
 AjaxDatatablesRails.configure do |c|
   c.db_adapter = ActiveRecord::Base.connection.adapter_name.downcase.to_sym
   c.orm = :active_record
 end
-
-load File.dirname(__FILE__) + '/support/schema.rb'
-load File.dirname(__FILE__) + '/support/test_helpers.rb'
-require File.dirname(__FILE__) + '/support/test_models.rb'
