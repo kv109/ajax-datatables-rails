@@ -9,6 +9,9 @@
 # Ignore test files
 /coverage
 /tmp
+/spec/dummy/tmp
+/spec/dummy/db/*.sqlite3
+/spec/dummy/log/*.log
 
 # Ignore sqlite db file
 /ajax_datatables_rails
