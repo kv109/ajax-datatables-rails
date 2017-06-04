@@ -332,8 +332,8 @@ describe AjaxDatatablesRails::ORM::ActiveRecord do
       let(:datatable) { ReallyComplexDatatableEq.new(view) }
 
       before(:each) do
-        create(:user, first_name: 'john', post_id: 1)
-        create(:user, first_name: 'mary', post_id: 2)
+        create(:user, first_name: 'john', role_id: 1)
+        create(:user, first_name: 'mary', role_id: 2)
       end
 
       it 'should filter records matching' do
@@ -348,8 +348,8 @@ describe AjaxDatatablesRails::ORM::ActiveRecord do
       let(:datatable) { ReallyComplexDatatableNotEq.new(view) }
 
       before(:each) do
-        create(:user, first_name: 'john', post_id: 1)
-        create(:user, first_name: 'mary', post_id: 2)
+        create(:user, first_name: 'john', role_id: 1)
+        create(:user, first_name: 'mary', role_id: 2)
       end
 
       it 'should filter records matching' do
@@ -364,8 +364,8 @@ describe AjaxDatatablesRails::ORM::ActiveRecord do
       let(:datatable) { ReallyComplexDatatableLt.new(view) }
 
       before(:each) do
-        create(:user, first_name: 'john', post_id: 1)
-        create(:user, first_name: 'mary', post_id: 2)
+        create(:user, first_name: 'john', role_id: 1)
+        create(:user, first_name: 'mary', role_id: 2)
       end
 
       it 'should filter records matching' do
@@ -380,8 +380,8 @@ describe AjaxDatatablesRails::ORM::ActiveRecord do
       let(:datatable) { ReallyComplexDatatableGt.new(view) }
 
       before(:each) do
-        create(:user, first_name: 'john', post_id: 1)
-        create(:user, first_name: 'mary', post_id: 2)
+        create(:user, first_name: 'john', role_id: 1)
+        create(:user, first_name: 'mary', role_id: 2)
       end
 
       it 'should filter records matching' do
@@ -396,8 +396,8 @@ describe AjaxDatatablesRails::ORM::ActiveRecord do
       let(:datatable) { ReallyComplexDatatableLteq.new(view) }
 
       before(:each) do
-        create(:user, first_name: 'john', post_id: 1)
-        create(:user, first_name: 'mary', post_id: 2)
+        create(:user, first_name: 'john', role_id: 1)
+        create(:user, first_name: 'mary', role_id: 2)
       end
 
       it 'should filter records matching' do
@@ -410,8 +410,8 @@ describe AjaxDatatablesRails::ORM::ActiveRecord do
       let(:datatable) { ReallyComplexDatatableGteq.new(view) }
 
       before(:each) do
-        create(:user, first_name: 'john', post_id: 1)
-        create(:user, first_name: 'mary', post_id: 2)
+        create(:user, first_name: 'john', role_id: 1)
+        create(:user, first_name: 'mary', role_id: 2)
       end
 
       it 'should filter records matching' do
@@ -424,8 +424,8 @@ describe AjaxDatatablesRails::ORM::ActiveRecord do
       let(:datatable) { ReallyComplexDatatableIn.new(view) }
 
       before(:each) do
-        create(:user, first_name: 'john', post_id: 1)
-        create(:user, first_name: 'mary', post_id: 2)
+        create(:user, first_name: 'john', role_id: 1)
+        create(:user, first_name: 'mary', role_id: 2)
       end
 
       it 'should filter records matching' do
